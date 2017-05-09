@@ -14,14 +14,7 @@ map('italy')
 install.packages("sp")
 library(sp)
 library(lattice)
-
-library(MicroDatosEs)
-library(plyr)
-library(maptools)
-library(sp)
-library(RColorBrewer)
-library(classInt)
-library(ggmap)  # tb carga ggplot2
+library(ggplot2)
 
 
 # Forma básica de España
@@ -57,6 +50,9 @@ load(url(githubURL1))
 
 tasa.paro.and.provincial
 
+# la función fortify -de ggplot2- permite pasar el objeto andalucia
+# propio de la librería sp
+# a data.frame que ya puede utilizar ggplot2
 and.data.frame <- fortify(andalucia)
 
 # Problema es que los datos los tenemos como dos primeros dígitos código postal
@@ -147,6 +143,39 @@ ggplot(tasa.paro.and.provincial) +
   labs(list(x = "", y = "", fill = "")) + 
   ggtitle("Tasa de paro\npor edad y estudios")
 
+
+# Mejoramos el mapa con etiquetas para los niveles
+# para dar significado a los colores
+# ver la capa "scale_fill_manual"
+
+
+ggplot(tasa.paro.and.provincial) + 
+  geom_map(aes(map_id = cod_prov, 
+               fill = intervalos), 
+           map = and.data.frame, 
+           colour = "black") + 
+  expand_limits(x = and.data.frame$long, 
+                y = and.data.frame$lat) + 
+  facet_grid(gedad ~ nforma3) + 
+  scale_fill_manual(values = c("#FDEBDD", 
+                               "#F9C9AD",
+                               "#E1885F", 
+                               "#D34400"), 
+                    labels = c("Menos del 20%", 
+                               "[20% - 40%)", 
+                               "[40% - 60%)", 
+                               "[60% - 80%]")) + 
+  scale_x_continuous(breaks = NULL) + 
+  scale_y_continuous(breaks = NULL) + 
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_blank(), 
+        plot.title = element_text(face = "bold", 
+                                  size = rel(1.4)), 
+        legend.text = element_text(size = rel(1.1)), 
+        strip.text = element_text(face = "bold", 
+                                  size = rel(1.1))) + 
+  labs(list(x = "", y = "", fill = "")) + 
+  ggtitle("Tasa de paro\npor edad y estudios")
 
 
 

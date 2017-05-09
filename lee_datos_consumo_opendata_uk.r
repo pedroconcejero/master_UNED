@@ -29,6 +29,18 @@ datos$'Total cost / 12000 miles' <- as.numeric(gsub(',', '', datos$'Total cost /
 
 summary(datos)
 
-table(datos$`Fuel Type`)
+names(datos)
+
+names(datos) <- gsub(" ", "", names(datos))
+names(datos) <- gsub("\\(", "", names(datos))
+names(datos) <- gsub("\\)", "", names(datos))
+names(datos) <- gsub("\\/", "", names(datos))
+names(datos) <- gsub("\\[", "", names(datos))
+names(datos) <- gsub("\\]", "", names(datos))
+names(datos) <- gsub("\\.", "_", names(datos))
+
+names(datos)
+
+table(datos$FuelType)
 
 save(datos, file = "datos_4510_vehiculos_2016.rda")
