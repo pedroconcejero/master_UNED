@@ -41,6 +41,32 @@ names(datos) <- gsub("\\.", "_", names(datos))
 
 names(datos)
 
+# HAY UN PROBLEMA GORDO en los datos del Nissan Qashqai dCi 2015
+# Tiene un consumo en MetricUrbanCold totalmente disparado (43.6 litros / 100 km)
+# Muy probablemente es un error de entrada de datos
+# Lo vamos a eliminar
+
+dim(datos)
+datos <- datos[-2899,]
+dim(datos)
+
+# Por otro lado los tipos básicos de coche son muy confusos
+
 table(datos$FuelType)
 
-save(datos, file = "D:/2017/master UNED curso visualizacion/repo github/master_UNED/datos_4510_vehiculos_2016.rda")
+# Vamos a agrupar en cuatro tipos básicos: 
+# Petrol (Gasolina)
+# Diesel
+# Híbridos -cualquier tipo
+# Electricos
+
+datos$Tipo <- "Híbrido"
+datos$Tipo[datos$FuelType == "Diesel"] <- "Diesel"
+datos$Tipo[datos$FuelType == "Petrol"] <- "Gasolina"
+datos$Tipo[datos$FuelType == "Electricity"] <- "Eléctrico"
+
+table(datos$Tipo)
+
+
+save(datos, 
+     file = "D:/2017/master UNED curso visualizacion/repo github/master_UNED/datos_4510_vehiculos_2016.rda")
