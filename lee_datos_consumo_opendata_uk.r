@@ -38,6 +38,7 @@ names(datos) <- gsub("\\/", "", names(datos))
 names(datos) <- gsub("\\[", "", names(datos))
 names(datos) <- gsub("\\]", "", names(datos))
 names(datos) <- gsub("\\.", "_", names(datos))
+names(datos) <- gsub("\\-", "", names(datos))
 
 names(datos)
 
