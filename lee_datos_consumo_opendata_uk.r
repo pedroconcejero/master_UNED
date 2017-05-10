@@ -43,4 +43,4 @@ names(datos)
 
 table(datos$FuelType)
 
-save(datos, file = "datos_4510_vehiculos_2016.rda")
+save(datos, file = "D:/2017/master UNED curso visualizacion/repo github/master_UNED/datos_4510_vehiculos_2016.rda")
