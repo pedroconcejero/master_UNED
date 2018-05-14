@@ -56,11 +56,27 @@ lines(lowess(tons, litperkm),
 
 install.packages("car")
 library(car)
+
+# ATENCION: 
+# La librería car ha cambiado en este último año 2017-2018
+# El código siguiente da un error, y por eso está comentado
+# Más abajo la alternativa para visualizar lo deseado
+# No es un gráfico muy importante porque veremos cómo hacer esto mismo con ggplot
+
+# scatterplot(litperkm ~ tons | cyl, 
+#             data = mtcars,
+#             xlab = "Peso (tons)", ylab="Consumo (lit por km)",
+#             main = "Grafico dispersion mejorado",
+#             labels = row.names(mtcars))
+
 scatterplot(litperkm ~ tons | cyl, 
             data = mtcars,
             xlab = "Peso (tons)", ylab="Consumo (lit por km)",
-            main = "Grafico dispersion mejorado",
-            labels = row.names(mtcars))
+            main = "Grafico dispersion mejorado")
+
+text(litperkm ~ tons, 
+     labels=rownames(mtcars),
+     data=mtcars, cex=0.6, font=2)
 
 
 # MATRICES DE GRAFICOS DE DISPERSION
