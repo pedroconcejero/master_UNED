@@ -6,7 +6,7 @@
 types <- c("source", "win.binary", 
            "mac.binary", "mac.binary.mavericks")
 
-CRANmirror <- "http://cran.revolutionanalytics.com"
+CRANmirror <- "https://cloud.r-project.org/"
 
 pdb <- lapply(types, function(x){
   cran <- contrib.url(repos = CRANmirror, 

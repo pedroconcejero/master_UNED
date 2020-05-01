@@ -1,5 +1,5 @@
 
-install.packages(c("maps", "mapdata"))
+install.packages(c("mapdata"))
 library(maps)
 library(mapdata)
 

@@ -42,7 +42,7 @@ plot(andalucia)
 
 
 # Pon tu directorio de trabajo
-setwd("D:/2017/master UNED curso visualizacion/repo github/master_UNED")
+setwd("/home/pedro/Escritorio/uned 2019/master_UNED_2020/master_UNED")
 
 githubURL1 <- "https://github.com/pedroconcejero/taller-color/blob/master/tasas_paro_andalucia.rda?raw=true"
 

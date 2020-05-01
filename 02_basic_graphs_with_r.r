@@ -215,5 +215,5 @@ scatter3d(wt, disp, mpg)
 # Guardamos el objeto para futuro uso
 
 save(mtcars,
-     file = "D:/2017/master UNED curso visualizacion/repo github/master_UNED/mtcars.rda")
+     file = "mtcars.rda")
 

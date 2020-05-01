@@ -1,5 +1,9 @@
+# Recordad SIEMPRE cambiar la ruta (path) a vuestro directorio de trabajo
+setwd("/home/pedro/Escritorio/uned 2019/master_UNED_2020/master_UNED")
 
-setwd("D:/2017/master UNED curso visualizacion/repo github/master_UNED/")
+# Necesario cargar la librería ggplot2
+library(ggplot2)
+
 
 load("mtcars.rda")
 
