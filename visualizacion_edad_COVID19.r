@@ -126,6 +126,6 @@ q <- p + geom_bar(position = "dodge",
 def2 <- p + geom_bar(position = "dodge",
              stat = "identity") + coord_flip()
 
-q + ggtitle(paste(title, "\n", "por género"))
+def2 + ggtitle(paste(title, "\n", "por género"))
 
                
