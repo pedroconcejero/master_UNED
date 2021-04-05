@@ -10,7 +10,7 @@
 if (!"leaflet" %in% installed.packages()) install.packages("leaflet")
 library(leaflet)
 
-Markers
+# Markers
 
 # Use markers to call out points on the map. 
 # Marker locations are expressed in 
