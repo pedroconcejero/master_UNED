@@ -30,7 +30,8 @@ shinyUI(
                             
                             mainPanel(
                               plotOutput('plot',
-                                         height=500)
+                                         height=1200,
+                                         width = 1200)
                               
                             )
                    )
